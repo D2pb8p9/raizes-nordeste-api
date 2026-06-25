@@ -24,26 +24,26 @@ public class UnidadeController {
 
     @GetMapping
     public ResponseEntity<List<UnidadeResponse>> listar() {
-        List<UnidadeResponse> unidades = unidadeService.listar();
+        List<UnidadeResponse> unidades = unidadeService.listarUnidades();
         return ResponseEntity.ok(unidades);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<UnidadeResponse> getUnidade(@PathVariable Long id) {
-        UnidadeResponse unidadeEncontrada = unidadeService.buscarPorId(id);
+        UnidadeResponse unidadeEncontrada = unidadeService.buscarUnidadePorId(id);
         return ResponseEntity.ok(unidadeEncontrada);
     }
 
     @PostMapping
-    public ResponseEntity<UnidadeResponse> salvar(@RequestBody @Valid UnidadeRequest unidadeRequest) {
-        UnidadeResponse unidadeSalva = unidadeService.cadastrar(unidadeRequest);
+    public ResponseEntity<UnidadeResponse> cadastrar(@RequestBody @Valid UnidadeRequest unidadeRequest) {
+        UnidadeResponse unidadeSalva = unidadeService.cadastrarUnidade(unidadeRequest);
         return ResponseEntity.status(201).body(unidadeSalva);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<UnidadeResponse> atualizar(@PathVariable Long id,
                                                      @RequestBody @Valid UnidadeRequest unidadeRequest) {
-        UnidadeResponse unidadeAtualizada = unidadeService.atualizar(id, unidadeRequest);
+        UnidadeResponse unidadeAtualizada = unidadeService.atualizarUnidade(id, unidadeRequest);
         return ResponseEntity.ok(unidadeAtualizada);
     }
 }

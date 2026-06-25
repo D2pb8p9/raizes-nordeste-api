@@ -17,12 +17,12 @@ public class UnidadeService {
 
     private final UnidadeRepository unidadeRepository;
 
-    public List<UnidadeResponse>  listar() {
-        log.info("Iniciando listagem de todas os unidades cadastradas");
+    public List<UnidadeResponse> listarUnidades() {
+        log.info("Iniciando listagem das unidades cadastradas");
 
         List<UnidadeResponse> unidadesResponse = unidadeRepository.findAll()
                 .stream()
-                .map(this::toResponse)
+                .map(this::toUnidadeResponse)
                 .toList();
 
         log.info("Listagem finalizada com sucesso");
@@ -30,18 +30,21 @@ public class UnidadeService {
         return unidadesResponse;
     }
 
-    public UnidadeResponse buscarPorId(Long id) {
+    public UnidadeResponse buscarUnidadePorId(Long id) {
         log.info("Buscando unidade com ID: {}", id);
 
         Unidade unidadeEncontrada = unidadeRepository.findById(id)
-                .orElseThrow(() -> new RecursoNaoEncontradoException("Unidade não encontrada com ID: " + id));
+                .orElseThrow(() -> {
+                    log.warn("Unidade não encontrada com ID {}", id);
+                    return new RecursoNaoEncontradoException("Unidade não encontrada com ID: " + id);
+                });
 
         log.info("Unidade encontrada com ID: {}", id);
 
-        return toResponse(unidadeEncontrada);
+        return toUnidadeResponse(unidadeEncontrada);
     }
 
-    public UnidadeResponse cadastrar(UnidadeRequest unidadeRequest) {
+    public UnidadeResponse cadastrarUnidade(UnidadeRequest unidadeRequest) {
         log.info("Iniciando cadastro de nova unidade");
 
         Unidade novaUnidade = new Unidade();
@@ -52,14 +55,17 @@ public class UnidadeService {
 
         log.info("Nova unidade cadastrada com sucesso");
 
-        return toResponse(unidadeSalva);
+        return toUnidadeResponse(unidadeSalva);
     }
 
-    public UnidadeResponse atualizar(Long id, UnidadeRequest unidadeRequest) {
+    public UnidadeResponse atualizarUnidade(Long id, UnidadeRequest unidadeRequest) {
         log.info("Iniciando atualização de unidade com ID: {}", id);
 
         Unidade unidade = unidadeRepository.findById(id)
-                .orElseThrow(() -> new RecursoNaoEncontradoException("Unidade não encontrada com o ID: " + id));
+                .orElseThrow(() -> {
+                        log.warn("Unidade para atualização não encontrada com ID {}", id);
+                        return new RecursoNaoEncontradoException("Unidade não encontrada com o ID: " + id);
+                });
 
         unidade.setNome(unidadeRequest.nome());
         unidade.setEndereco(unidadeRequest.endereco());
@@ -68,10 +74,10 @@ public class UnidadeService {
 
         log.info("Unidade atualizada com sucesso");
 
-        return toResponse(unidade);
+        return toUnidadeResponse(unidade);
     }
 
-    private UnidadeResponse toResponse(Unidade unidade) {
+    private UnidadeResponse toUnidadeResponse(Unidade unidade) {
         return new UnidadeResponse(
                 unidade.getId(),
                 unidade.getNome(),
