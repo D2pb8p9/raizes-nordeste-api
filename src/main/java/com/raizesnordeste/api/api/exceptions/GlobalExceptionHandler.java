@@ -1,6 +1,7 @@
 package com.raizesnordeste.api.api.exceptions;
 
-import com.raizesnordeste.api.api.dto.ErroResponse;
+import com.raizesnordeste.api.api.dto.response.ErroResponse;
+import com.raizesnordeste.api.application.exception.RecursoNaoEncontradoException;
 import jakarta.servlet.http.HttpServletRequest;
 import java.time.LocalDateTime;
 import org.springframework.http.ResponseEntity;
@@ -12,7 +13,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(RuntimeException.class)
     public ResponseEntity<ErroResponse> handleException(HttpServletRequest request, Exception ex) {
-        return ResponseEntity.status(400).body(
+        return ResponseEntity.status(500).body(
                 new ErroResponse(
                         "ERRO_INTERNO",
                         ex.getMessage(),
@@ -20,4 +21,16 @@ public class GlobalExceptionHandler {
                         request.getRequestURI()
                 ));
     }
+
+    @ExceptionHandler(RecursoNaoEncontradoException.class)
+    public ResponseEntity<ErroResponse> handleRecursoNaoEncontrado(HttpServletRequest request, RecursoNaoEncontradoException ex) {
+        return ResponseEntity.status(404).body(
+                new ErroResponse(
+                        "RECURSO_NAO_ENCONTRADO",
+                        ex.getMessage(),
+                        LocalDateTime.now().toString(),
+                        request.getRequestURI()
+                ));
+    }
+
 }
