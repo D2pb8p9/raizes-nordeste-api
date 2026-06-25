@@ -36,6 +36,9 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.GET, "/unidades", "/unidades/**").hasAnyRole("GERENTE", "FRANQUEADORA")
                         .requestMatchers(HttpMethod.POST, "/unidades").hasAnyRole("GERENTE", "FRANQUEADORA")
                         .requestMatchers(HttpMethod.PUT, "/unidades/**").hasAnyRole("GERENTE", "FRANQUEADORA")
+                        .requestMatchers(HttpMethod.GET, "/produtos", "/produtos/**").hasAnyRole("GERENTE", "FRANQUEADORA")
+                        .requestMatchers(HttpMethod.POST, "/produtos").hasAnyRole("GERENTE", "FRANQUEADORA")
+                        .requestMatchers(HttpMethod.PUT, "/produtos/**").hasAnyRole("GERENTE", "FRANQUEADORA")
                         .anyRequest().authenticated())
                 .sessionManagement(
                         session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
