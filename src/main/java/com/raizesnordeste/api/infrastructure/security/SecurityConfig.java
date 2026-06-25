@@ -33,6 +33,9 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.POST, "/auth/login", "/auth/registro").permitAll()
                         .requestMatchers("/h2-console/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/unidades", "/unidades/**").hasAnyRole("GERENTE", "FRANQUEADORA")
+                        .requestMatchers(HttpMethod.POST, "/unidades").hasAnyRole("GERENTE", "FRANQUEADORA")
+                        .requestMatchers(HttpMethod.PUT, "/unidades/**").hasAnyRole("GERENTE", "FRANQUEADORA")
                         .anyRequest().authenticated())
                 .sessionManagement(
                         session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
