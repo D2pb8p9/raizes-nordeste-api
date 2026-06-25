@@ -1,4 +1,4 @@
-package com.raizesnordeste.api.application;
+package com.raizesnordeste.api.application.service;
 
 import com.raizesnordeste.api.api.dto.request.LoginRequest;
 import com.raizesnordeste.api.api.dto.request.RegistroRequest;

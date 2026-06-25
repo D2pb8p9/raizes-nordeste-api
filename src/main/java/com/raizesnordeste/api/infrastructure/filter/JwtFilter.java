@@ -1,7 +1,7 @@
 package com.raizesnordeste.api.infrastructure.filter;
 
-import com.raizesnordeste.api.application.JwtService;
-import com.raizesnordeste.api.application.UsuarioDetailsService;
+import com.raizesnordeste.api.application.service.JwtService;
+import com.raizesnordeste.api.application.service.UsuarioDetailsService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

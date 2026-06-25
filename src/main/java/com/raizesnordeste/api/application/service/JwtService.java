@@ -1,4 +1,4 @@
-package com.raizesnordeste.api.application;
+package com.raizesnordeste.api.application.service;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;

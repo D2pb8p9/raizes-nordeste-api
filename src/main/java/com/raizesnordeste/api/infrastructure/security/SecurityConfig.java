@@ -1,6 +1,6 @@
 package com.raizesnordeste.api.infrastructure.security;
 
-import com.raizesnordeste.api.application.UsuarioDetailsService;
+import com.raizesnordeste.api.application.service.UsuarioDetailsService;
 import com.raizesnordeste.api.infrastructure.filter.JwtFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;

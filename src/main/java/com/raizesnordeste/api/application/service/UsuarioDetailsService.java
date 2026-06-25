@@ -1,4 +1,4 @@
-package com.raizesnordeste.api.application;
+package com.raizesnordeste.api.application.service;
 
 import com.raizesnordeste.api.infrastructure.repository.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
