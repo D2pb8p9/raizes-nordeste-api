@@ -1,4 +1,4 @@
-package com.raizesnordeste.api.api.dto;
+package com.raizesnordeste.api.api.dto.response;
 
 public record ErroResponse(
         String error,

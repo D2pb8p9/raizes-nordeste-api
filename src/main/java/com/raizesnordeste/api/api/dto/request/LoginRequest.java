@@ -1,4 +1,4 @@
-package com.raizesnordeste.api.api.dto;
+package com.raizesnordeste.api.api.dto.request;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

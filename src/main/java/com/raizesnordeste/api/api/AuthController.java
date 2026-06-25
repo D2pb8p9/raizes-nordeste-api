@@ -1,7 +1,7 @@
 package com.raizesnordeste.api.api;
 
-import com.raizesnordeste.api.api.dto.LoginRequest;
-import com.raizesnordeste.api.api.dto.RegistroRequest;
+import com.raizesnordeste.api.api.dto.request.LoginRequest;
+import com.raizesnordeste.api.api.dto.request.RegistroRequest;
 import com.raizesnordeste.api.application.AuthService;
 import jakarta.validation.Valid;
 import java.util.Map;

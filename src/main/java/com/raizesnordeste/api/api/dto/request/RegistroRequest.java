@@ -1,4 +1,4 @@
-package com.raizesnordeste.api.api.dto;
+package com.raizesnordeste.api.api.dto.request;
 
 import com.raizesnordeste.api.domain.enums.Role;
 import jakarta.validation.constraints.Email;

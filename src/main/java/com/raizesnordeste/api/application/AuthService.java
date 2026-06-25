@@ -1,7 +1,7 @@
 package com.raizesnordeste.api.application;
 
-import com.raizesnordeste.api.api.dto.LoginRequest;
-import com.raizesnordeste.api.api.dto.RegistroRequest;
+import com.raizesnordeste.api.api.dto.request.LoginRequest;
+import com.raizesnordeste.api.api.dto.request.RegistroRequest;
 import com.raizesnordeste.api.domain.Usuario;
 import com.raizesnordeste.api.infrastructure.repository.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
