@@ -1,6 +1,7 @@
 package com.raizesnordeste.api.api.exceptions;
 
 import com.raizesnordeste.api.api.dto.response.ErroResponse;
+import com.raizesnordeste.api.application.exception.EstoqueInsuficienteException;
 import com.raizesnordeste.api.application.exception.RecursoDuplicadoException;
 import com.raizesnordeste.api.application.exception.RecursoNaoEncontradoException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -45,5 +46,15 @@ public class GlobalExceptionHandler {
                 ));
     }
 
+    @ExceptionHandler(EstoqueInsuficienteException.class)
+    public ResponseEntity<ErroResponse> handleEstoqueInsuficiente(HttpServletRequest request, EstoqueInsuficienteException ex) {
+        return ResponseEntity.status(422).body(
+                new ErroResponse(
+                        "ESTOQUE_INSUFICIENTE",
+                        ex.getMessage(),
+                        LocalDateTime.now().toString(),
+                        request.getRequestURI()
+                ));
+    }
 
 }
