@@ -2,6 +2,7 @@ package com.raizesnordeste.api.application.service;
 
 import com.raizesnordeste.api.api.dto.request.UnidadeRequest;
 import com.raizesnordeste.api.api.dto.response.UnidadeResponse;
+import com.raizesnordeste.api.application.exception.RecursoDuplicadoException;
 import com.raizesnordeste.api.application.exception.RecursoNaoEncontradoException;
 import com.raizesnordeste.api.domain.Unidade;
 import com.raizesnordeste.api.infrastructure.repository.UnidadeRepository;
@@ -47,6 +48,12 @@ public class UnidadeService {
     public UnidadeResponse cadastrarUnidade(UnidadeRequest unidadeRequest) {
         log.info("Iniciando cadastro de nova unidade");
 
+        if(unidadeRepository.existsByNome(unidadeRequest.nome())) {
+            log.warn("Tentativa de cadastro de unidade com nome já existente: {}", unidadeRequest.nome());
+            throw new RecursoDuplicadoException(
+                    "Já existe uma unidade cadastrada com o nome: " + unidadeRequest.nome());
+        }
+
         Unidade novaUnidade = new Unidade();
         novaUnidade.setNome(unidadeRequest.nome());
         novaUnidade.setEndereco(unidadeRequest.endereco());
@@ -66,6 +73,12 @@ public class UnidadeService {
                         log.warn("Unidade para atualização não encontrada com ID {}", id);
                         return new RecursoNaoEncontradoException("Unidade não encontrada com o ID: " + id);
                 });
+
+        if (unidadeRepository.existsByNomeAndIdNot(unidadeRequest.nome(), id)) {
+            log.warn("Unidade com nome: {} já existe", unidadeRequest.nome());
+            throw new RecursoDuplicadoException(
+                    "Já existe outra unidade cadastrada com o nome: " + unidadeRequest.nome());
+        }
 
         unidade.setNome(unidadeRequest.nome());
         unidade.setEndereco(unidadeRequest.endereco());

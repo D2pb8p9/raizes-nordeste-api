@@ -39,6 +39,9 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.GET, "/produtos", "/produtos/**").hasAnyRole("GERENTE", "FRANQUEADORA")
                         .requestMatchers(HttpMethod.POST, "/produtos").hasAnyRole("GERENTE", "FRANQUEADORA")
                         .requestMatchers(HttpMethod.PUT, "/produtos/**").hasAnyRole("GERENTE", "FRANQUEADORA")
+                        .requestMatchers(HttpMethod.GET, "/cardapio/**").authenticated()
+                        .requestMatchers(HttpMethod.POST, "/cardapio").hasAnyRole("GERENTE", "FRANQUEADORA")
+                        .requestMatchers(HttpMethod.PUT, "/cardapio/**").hasAnyRole("GERENTE", "FRANQUEADORA")
                         .anyRequest().authenticated())
                 .sessionManagement(
                         session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

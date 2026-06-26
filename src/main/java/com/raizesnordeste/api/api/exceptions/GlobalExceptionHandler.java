@@ -1,6 +1,7 @@
 package com.raizesnordeste.api.api.exceptions;
 
 import com.raizesnordeste.api.api.dto.response.ErroResponse;
+import com.raizesnordeste.api.application.exception.RecursoDuplicadoException;
 import com.raizesnordeste.api.application.exception.RecursoNaoEncontradoException;
 import jakarta.servlet.http.HttpServletRequest;
 import java.time.LocalDateTime;
@@ -32,5 +33,17 @@ public class GlobalExceptionHandler {
                         request.getRequestURI()
                 ));
     }
+
+    @ExceptionHandler(RecursoDuplicadoException.class)
+    public ResponseEntity<ErroResponse> handleRecursoDuplicado(HttpServletRequest request, RecursoDuplicadoException ex) {
+        return ResponseEntity.status(409).body(
+                new ErroResponse(
+                        "RECURSO_DUPLICADO",
+                        ex.getMessage(),
+                        LocalDateTime.now().toString(),
+                        request.getRequestURI()
+                ));
+    }
+
 
 }

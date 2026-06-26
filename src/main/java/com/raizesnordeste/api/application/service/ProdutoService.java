@@ -2,6 +2,7 @@ package com.raizesnordeste.api.application.service;
 
 import com.raizesnordeste.api.api.dto.request.ProdutoRequest;
 import com.raizesnordeste.api.api.dto.response.ProdutoResponse;
+import com.raizesnordeste.api.application.exception.RecursoDuplicadoException;
 import com.raizesnordeste.api.application.exception.RecursoNaoEncontradoException;
 import com.raizesnordeste.api.domain.Produto;
 import com.raizesnordeste.api.infrastructure.repository.ProdutoRepository;
@@ -45,8 +46,13 @@ public class ProdutoService {
         return toProdutoResponse(produtoEncontrado);
     }
 
-    public ProdutoResponse cadastrarProduto(ProdutoRequest  produtoRequest){
+    public ProdutoResponse cadastrarProduto(ProdutoRequest produtoRequest){
         log.info("Iniciando cadastro de novo produto");
+
+        if(produtoRepository.existsByNome(produtoRequest.nome())){
+            log.warn("Produto com nome: {} já existe", produtoRequest.nome());
+            throw new RecursoDuplicadoException("Produto já cadastrado com este nome");
+        }
 
         Produto novoProduto = new Produto();
 
@@ -68,6 +74,13 @@ public class ProdutoService {
                     log.warn("Produto para atualização não encontrado com ID: {}", id);
                     return new RecursoNaoEncontradoException("Produto não encontrado");
                 });
+
+        if (produtoRepository.existsByNomeAndIdNot(produtoRequest.nome(), id)) {
+            log.warn("Já existe outro produto com nome: {}", produtoRequest.nome());
+            throw new RecursoDuplicadoException(
+                    "Já existe outro produto cadastrado com nome: " + produtoRequest.nome());
+        }
+
 
         produto.setNome(produtoRequest.nome());
         produto.setDescricao(produtoRequest.descricao());
