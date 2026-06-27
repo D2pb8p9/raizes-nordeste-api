@@ -131,10 +131,10 @@ public class PedidoService {
         }
 
         for (ItensPedido item : pedido.getItens()) {
-            estoqueService.registrarSaida(
+            estoqueService.registrarEstorno(
                     pedido.getUnidade().getId(),
                     item.getProduto().getId(),
-                    item.getQuantidade() * -1
+                    item.getQuantidade()
             );
         }
 

@@ -83,6 +83,36 @@ public class EstoqueService {
         log.info("Saída de estoque registrada com sucesso. Novo saldo: {}", estoque.getQuantidadeAtual());
     }
 
+    public void registrarEstorno(Long unidadeId, Long produtoId, Integer quantidade) {
+        log.info("Iniciando estorno de estoque para produto ID: {} na unidade ID: {}", produtoId, unidadeId);
+
+        Unidade unidade = buscarUnidadePorId(unidadeId);
+        Produto produto = buscarProdutoPorId(produtoId);
+
+        Estoque estoque = estoqueRepository
+                .findByUnidadeIdAndProdutoId(unidadeId, produtoId)
+                .orElseGet(() -> {
+                    Estoque novo = new Estoque();
+                    novo.setUnidade(unidade);
+                    novo.setProduto(produto);
+                    novo.setQuantidadeAtual(0);
+                    return novo;
+                });
+
+        estoque.setQuantidadeAtual(estoque.getQuantidadeAtual() + quantidade);
+        estoqueRepository.save(estoque);
+
+        MovimentoEstoque movimento = new MovimentoEstoque();
+        movimento.setUnidade(unidade);
+        movimento.setProduto(produto);
+        movimento.setTipoMovimento(TipoMovimentoEstoque.ENTRADA);
+        movimento.setQuantidade(quantidade);
+        movimento.setDataMovimento(LocalDateTime.now());
+        movimentoEstoqueRepository.save(movimento);
+
+        log.info("Estorno de estoque registrado com sucesso. Novo saldo: {}", estoque.getQuantidadeAtual());
+    }
+
     public List<EstoqueResponse> consultarPorUnidade(Long unidadeId) {
         log.info("Iniciando consulta de estoque da unidade ID: {}", unidadeId);
 
