@@ -2,6 +2,7 @@ package com.raizesnordeste.api.application.service;
 
 import com.raizesnordeste.api.api.dto.request.LoginRequest;
 import com.raizesnordeste.api.api.dto.request.RegistroRequest;
+import com.raizesnordeste.api.application.exception.RecursoDuplicadoException;
 import com.raizesnordeste.api.domain.Usuario;
 import com.raizesnordeste.api.infrastructure.repository.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
@@ -20,6 +21,12 @@ public class AuthService {
 
     public void registrar(RegistroRequest request) {
         log.info("Iniciando registro de usuário {}", request.email());
+
+        if (usuarioRepository.findByEmail(request.email()).isPresent()) {
+            log.warn("Email {} já cadastrado", request.email());
+            throw new RecursoDuplicadoException("Email já cadastrado: " + request.email());
+        }
+
 
         Usuario usuario = new Usuario();
 

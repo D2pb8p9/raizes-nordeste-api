@@ -1,6 +1,7 @@
 package com.raizesnordeste.api.domain;
 
 import com.raizesnordeste.api.domain.enums.Role;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -20,7 +21,10 @@ public class Usuario {
     private Long id;
 
     private String nome;
+
+    @Column(unique = true)
     private String email;
+
     private String senha;
 
     @Enumerated(EnumType.STRING)
