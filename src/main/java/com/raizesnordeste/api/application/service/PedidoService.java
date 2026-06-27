@@ -88,7 +88,8 @@ public class PedidoService {
 
         log.info("Pedido ID: {} criado com sucesso. Valor total: {}", pedido.getId(), valorTotal);
 
-        return toPedidoResponse(pedido);
+        Pedido pedidoAtualizado = pedidoRepository.findById(pedido.getId()).orElseThrow();
+        return toPedidoResponse(pedidoAtualizado);
     }
 
     public List<PedidoResponse> consultarPedidos(Long unidadeId, StatusPedido status, CanalPedido canalPedido) {
