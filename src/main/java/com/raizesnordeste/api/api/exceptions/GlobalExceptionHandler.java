@@ -76,4 +76,16 @@ public class GlobalExceptionHandler {
                         request.getRequestURI()
                 ));
     }
+
+    @ExceptionHandler(HttpMessageNotReadableException.class)
+    public ResponseEntity<ErroResponse> handleMensagemInvalida(HttpServletRequest request, HttpMessageNotReadableException ex) {
+        log.warn("REQUISICAO_INVALIDA | rota={} | mensagem={}", request.getRequestURI(), ex.getMessage());
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                .body(new ErroResponse(
+                        "REQUISICAO_INVALIDA",
+                        "Valor inválido no corpo da requisição. Verifique os campos e tente novamente.",
+                        LocalDateTime.now().toString(),
+                        request.getRequestURI()));
+    }
 }
+
