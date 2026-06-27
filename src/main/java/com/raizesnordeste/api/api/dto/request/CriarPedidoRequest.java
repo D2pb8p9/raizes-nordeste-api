@@ -11,9 +11,6 @@ public record CriarPedidoRequest(
         @NotNull(message = "unidadeId é obrigatório")
         Long unidadeId,
 
-        @NotNull(message = "usuarioId é obrigatório")
-        Long usuarioId,
-
         @NotNull(message = "canalPedido é obrigatório")
         CanalPedido canalPedido,
 

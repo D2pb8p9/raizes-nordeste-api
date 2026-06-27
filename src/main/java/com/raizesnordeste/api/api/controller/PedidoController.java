@@ -28,8 +28,9 @@ public class PedidoController {
 
     @PostMapping
     public ResponseEntity<PedidoResponse> criarPedido(
-            @RequestBody @Valid CriarPedidoRequest request) {
-        PedidoResponse response = pedidoService.criarPedido(request);
+            @RequestBody @Valid CriarPedidoRequest request,
+            Authentication authentication) {
+        PedidoResponse response = pedidoService.criarPedido(request, authentication.getName());
         return ResponseEntity.status(201).body(response);
     }
 

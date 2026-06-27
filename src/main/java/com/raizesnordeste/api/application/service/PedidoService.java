@@ -40,12 +40,14 @@ public class PedidoService {
     private final EstoqueService estoqueService;
 
     @Transactional
-    public PedidoResponse criarPedido(CriarPedidoRequest request) {
-        log.info("Iniciando criação de pedido para usuário ID: {} na unidade ID: {}",
-                request.usuarioId(), request.unidadeId());
+    public PedidoResponse criarPedido(CriarPedidoRequest request, String email) {
+        log.info("Iniciando criação de pedido para usuário com email: {} na unidade ID: {}",
+                email, request.unidadeId());
 
         Unidade unidade = buscarUnidadePorId(request.unidadeId());
-        Usuario usuario = buscarUsuarioPorId(request.usuarioId());
+        Usuario usuario = usuarioRepository.findByEmail(email)
+                .orElseThrow(() -> new RecursoNaoEncontradoException("Usuário não encontrado com email: " + email));
+
 
         Pedido pedido = new Pedido();
         pedido.setUnidade(unidade);
@@ -163,14 +165,6 @@ public class PedidoService {
                 .orElseThrow(() -> {
                     log.warn("Unidade não encontrada com ID {}", unidadeId);
                     return new RecursoNaoEncontradoException("Unidade não encontrada com ID: " + unidadeId);
-                });
-    }
-
-    private Usuario buscarUsuarioPorId(Long usuarioId) {
-        return usuarioRepository.findById(usuarioId)
-                .orElseThrow(() -> {
-                    log.warn("Usuário não encontrado com ID {}", usuarioId);
-                    return new RecursoNaoEncontradoException("Usuário não encontrado com ID: " + usuarioId);
                 });
     }
 
