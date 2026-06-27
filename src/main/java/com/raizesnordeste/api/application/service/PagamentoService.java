@@ -21,6 +21,7 @@ public class PagamentoService {
 
     private final PagamentoRepository pagamentoRepository;
     private final PedidoRepository pedidoRepository;
+    private final FidelidadeService fidelidadeService;
 
     @Transactional
     public PagamentoResponse processarPagamento(ProcessarPagamentoRequest request) {
@@ -48,6 +49,10 @@ public class PagamentoService {
 
         pedido.setStatusPagamento(resultado);
         pedidoRepository.save(pedido);
+
+        if (resultado == StatusPagamento.APROVADO) {
+            fidelidadeService.acumularPontos(pedido.getUsuario().getId(), pedido.getValorTotal());
+        }
 
         log.info("Pagamento registrado com sucesso para o pedido ID: {}", request.pedidoId());
 
