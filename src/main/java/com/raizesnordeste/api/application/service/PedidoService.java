@@ -120,6 +120,16 @@ public class PedidoService {
         return toPedidoResponse(pedido);
     }
 
+    public List<PedidoResponse> consultarMeusPedidos(String email) {
+        log.info("Consultando pedidos do usuário com email: {}", email);
+
+        return pedidoRepository.findByUsuario_Email(email)
+                .stream()
+                .map(this::toPedidoResponse)
+                .toList();
+    }
+
+
     public PedidoResponse cancelarPedido(Long pedidoId) {
         log.info("Iniciando cancelamento do pedido ID: {}", pedidoId);
 

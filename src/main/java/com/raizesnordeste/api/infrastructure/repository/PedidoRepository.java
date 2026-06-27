@@ -16,4 +16,6 @@ public interface PedidoRepository extends JpaRepository<Pedido, Long> {
             @Param("unidadeId") Long unidadeId,
             @Param("status") StatusPedido status,
             @Param("canalPedido") CanalPedido canalPedido);
+
+    List<Pedido> findByUsuario_Email(String email);
 }

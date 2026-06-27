@@ -10,6 +10,7 @@ import jakarta.validation.Valid;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -42,6 +43,13 @@ public class PedidoController {
         List<PedidoResponse> pedidos = pedidoService.consultarPedidos(unidadeId, status, canalPedido);
         return ResponseEntity.ok(pedidos);
     }
+
+    @GetMapping("/meu-historico")
+    public ResponseEntity<List<PedidoResponse>> consultarMeusPedidos(Authentication authentication) {
+        String email = authentication.getName();
+        return ResponseEntity.ok(pedidoService.consultarMeusPedidos(email));
+    }
+
 
     @PatchMapping("/{id}/status")
     public ResponseEntity<PedidoResponse> atualizarStatus(
