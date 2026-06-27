@@ -90,8 +90,9 @@ public class PedidoService {
 
         log.info("Pedido ID: {} criado com sucesso. Valor total: {}", pedido.getId(), valorTotal);
 
-        Pedido pedidoAtualizado = pedidoRepository.findById(pedido.getId()).orElseThrow();
-        return toPedidoResponse(pedidoAtualizado);
+        List<ItensPedido> itensSalvos = itensPedidoRepository.findByPedido_Id(pedido.getId());
+        return toPedidoResponse(pedido, itensSalvos);
+
     }
 
     public List<PedidoResponse> consultarPedidos(Long unidadeId, StatusPedido status, CanalPedido canalPedido) {
@@ -212,5 +213,32 @@ public class PedidoService {
                 itens
         );
     }
+
+    private PedidoResponse toPedidoResponse(Pedido pedido, List<ItensPedido> itens) {
+        List<ItemPedidoResponse> itensResponse = itens.stream()
+                .map(item -> new ItemPedidoResponse(
+                        item.getProduto().getId(),
+                        item.getProduto().getNome(),
+                        item.getQuantidade(),
+                        item.getPrecoUnitario(),
+                        item.getObservacao()
+                ))
+                .toList();
+
+        return new PedidoResponse(
+                pedido.getId(),
+                pedido.getUnidade().getId(),
+                pedido.getUnidade().getNome(),
+                pedido.getUsuario().getId(),
+                pedido.getUsuario().getNome(),
+                pedido.getCanalPedido(),
+                pedido.getStatus(),
+                pedido.getStatusPagamento(),
+                pedido.getDataPedido(),
+                pedido.getValorTotal(),
+                itensResponse
+        );
+    }
+
 }
 
