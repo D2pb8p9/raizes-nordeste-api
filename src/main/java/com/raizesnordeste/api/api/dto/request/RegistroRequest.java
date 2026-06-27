@@ -3,6 +3,7 @@ package com.raizesnordeste.api.api.dto.request;
 import com.raizesnordeste.api.domain.enums.Role;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 public record RegistroRequest(
         @NotBlank
@@ -15,5 +16,6 @@ public record RegistroRequest(
         @NotBlank
         String senha,
 
+        @NotNull
         Role role) {
 }
