@@ -6,6 +6,7 @@ import com.raizesnordeste.api.application.exception.RecursoDuplicadoException;
 import com.raizesnordeste.api.application.exception.RecursoNaoEncontradoException;
 import jakarta.servlet.http.HttpServletRequest;
 import java.time.LocalDateTime;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -57,4 +58,14 @@ public class GlobalExceptionHandler {
                 ));
     }
 
+    @ExceptionHandler(IllegalStateException.class)
+    public ResponseEntity<ErroResponse> handleIllegalState(
+            IllegalStateException ex, HttpServletRequest request) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                .body(new ErroResponse("OPERACAO_INVALIDA",
+                        ex.getMessage(),
+                        LocalDateTime.now().toString(),
+                        request.getRequestURI()
+                ));
+    }
 }
