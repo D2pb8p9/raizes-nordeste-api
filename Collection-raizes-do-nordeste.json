@@ -1,0 +1,724 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2026-06-27T00:00:00.000Z",
+  "__export_source": "insomnia.desktop.app",
+  "resources": [
+    {
+      "_type": "workspace",
+      "_id": "wrk_f119c802013d437ca1dea18e006fb2da",
+      "parentId": null,
+      "modified": 1782261802660,
+      "created": 1782250505493,
+      "name": "Endpoints",
+      "description": "",
+      "scope": "collection"
+    },
+    {
+      "_type": "environment",
+      "_id": "env_5eaff79f9368a6644fb0a255aab5200d818baad4",
+      "parentId": "wrk_f119c802013d437ca1dea18e006fb2da",
+      "modified": 1782250505501,
+      "created": 1782250505501,
+      "name": "Base Environment",
+      "data": {},
+      "dataPropertyOrder": null,
+      "color": null,
+      "isPrivate": false,
+      "metaSortKey": 1782250505501
+    },
+    {
+      "_type": "cookie_jar",
+      "_id": "jar_5eaff79f9368a6644fb0a255aab5200d818baad4",
+      "parentId": "wrk_f119c802013d437ca1dea18e006fb2da",
+      "modified": 1782250505633,
+      "created": 1782250505633,
+      "name": "Default Jar",
+      "cookies": []
+    },
+    {
+      "_type": "request",
+      "_id": "req_7bdab14ff4144ece941efed14f082c97",
+      "parentId": "wrk_f119c802013d437ca1dea18e006fb2da",
+      "modified": 1782593093974,
+      "created": 1782250505499,
+      "url": "http://localhost:8080/auth/registro",
+      "name": "Registrar Usuário",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"nome\":\"atendente\",\n\t\"email\":\"atendente@email.com\",\n\t\"senha\":\"123456\",\n\t\"role\":\"ATENDENTE\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" }
+      ],
+      "authentication": {},
+      "metaSortKey": -1782250505499,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_type": "request",
+      "_id": "req_66076a488dc942a89079951a86316b7d",
+      "parentId": "wrk_f119c802013d437ca1dea18e006fb2da",
+      "modified": 1782593104545,
+      "created": 1782261824580,
+      "url": "http://localhost:8080/auth/login",
+      "name": "Login",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"email\":\"atendente@email.com\",\n\t\"senha\":\"123456\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" }
+      ],
+      "authentication": {},
+      "metaSortKey": -1782261824580,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_type": "request",
+      "_id": "req_08f0ba58ee0e44378ee732caaa882136",
+      "parentId": "wrk_f119c802013d437ca1dea18e006fb2da",
+      "modified": 1782592959989,
+      "created": 1782357318503,
+      "url": "http://localhost:8080/unidades",
+      "name": "Cadastrar Unidade",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"nome\": \"Unidade Fortaleza\",\n\t\"endereco\": \"Rua do Sol, 123\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJnZXJlbnRlQGVtYWlsLmNvbSIsImlhdCI6MTc4MjU5MjgwNSwiZXhwIjoxNzgyNjc5MjA1fQ.2ZcpjiUT7fXn0Og3MRO2ygc_5V6EC8VZXXEZgAIi0wSoXNStB1TNCYyLwf8sQCsl"
+      },
+      "metaSortKey": -1782357318503,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_type": "request",
+      "_id": "req_a563a5ff3b8a4ad98d74954e76ba59a3",
+      "parentId": "wrk_f119c802013d437ca1dea18e006fb2da",
+      "modified": 1782357498958,
+      "created": 1782357444303,
+      "url": "http://localhost:8080/unidades",
+      "name": "Listar Unidades",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJnZXJlbnRlQGVtYWlsLmNvbSIsImlhdCI6MTc4MjM1NzMwMCwiZXhwIjoxNzgyNDQzNzAwfQ.WpqExD5bnKw13yThrQmX8roBhOfqAPWbCBKw3tN81rdBdjdzU_jOqoK8dQaRJc5o"
+      },
+      "metaSortKey": -1782357444303,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_type": "request",
+      "_id": "req_66767bd222004410896799de33d6cc88",
+      "parentId": "wrk_f119c802013d437ca1dea18e006fb2da",
+      "modified": 1782357543179,
+      "created": 1782357513318,
+      "url": "http://localhost:8080/unidades/1",
+      "name": "Buscar Unidade por Id",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJnZXJlbnRlQGVtYWlsLmNvbSIsImlhdCI6MTc4MjM1NzMwMCwiZXhwIjoxNzgyNDQzNzAwfQ.WpqExD5bnKw13yThrQmX8roBhOfqAPWbCBKw3tN81rdBdjdzU_jOqoK8dQaRJc5o"
+      },
+      "metaSortKey": -1782357513318,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_type": "request",
+      "_id": "req_f33f19829662415a8918ade89df0bd1e",
+      "parentId": "wrk_f119c802013d437ca1dea18e006fb2da",
+      "modified": 1782357619006,
+      "created": 1782357574536,
+      "url": "http://localhost:8080/unidades/1",
+      "name": "Atualizar Unidade",
+      "description": "",
+      "method": "PUT",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"nome\": \"Unidade Fortaleza Centro\",\n\t\"endereco\": \"Av. Beira Mar, 456\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJnZXJlbnRlQGVtYWlsLmNvbSIsImlhdCI6MTc4MjM1NzMwMCwiZXhwIjoxNzgyNDQzNzAwfQ.WpqExD5bnKw13yThrQmX8roBhOfqAPWbCBKw3tN81rdBdjdzU_jOqoK8dQaRJc5o"
+      },
+      "metaSortKey": -1782357574536,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_type": "request",
+      "_id": "req_b2266af78cdd491a9c4585f5e5cfb3e2",
+      "parentId": "wrk_f119c802013d437ca1dea18e006fb2da",
+      "modified": 1782592971589,
+      "created": 1782360820859,
+      "url": "http://localhost:8080/produtos",
+      "name": "Cadastrar Produto",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"nome\": \"Baião de Dois\",\n\t\"descricao\": \"Arroz com feijão de corda, queijo e carne seca\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJnZXJlbnRlQGVtYWlsLmNvbSIsImlhdCI6MTc4MjU5MjgwNSwiZXhwIjoxNzgyNjc5MjA1fQ.2ZcpjiUT7fXn0Og3MRO2ygc_5V6EC8VZXXEZgAIi0wSoXNStB1TNCYyLwf8sQCsl"
+      },
+      "metaSortKey": -1782360820859,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_type": "request",
+      "_id": "req_9cc9fd1eb0c44c449e25718aa3cc3376",
+      "parentId": "wrk_f119c802013d437ca1dea18e006fb2da",
+      "modified": 1782361036789,
+      "created": 1782360880873,
+      "url": "http://localhost:8080/produtos",
+      "name": "Listar Produtos",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJnZXJlbnRlQGVtYWlsLmNvbSIsImlhdCI6MTc4MjM2MTAwOCwiZXhwIjoxNzgyNDQ3NDA4fQ.GSLYnWLIleOL8ICFMBhQm__qDzOaTvGaZXEOEC6kv-cZl-VfrDYaXHVz2r4nesKh"
+      },
+      "metaSortKey": -1782360880873,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_type": "request",
+      "_id": "req_2c647491f5e349bb99b5120984702b49",
+      "parentId": "wrk_f119c802013d437ca1dea18e006fb2da",
+      "modified": 1782361053469,
+      "created": 1782360912952,
+      "url": "http://localhost:8080/produtos/1",
+      "name": "Buscar Produto por Id",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJnZXJlbnRlQGVtYWlsLmNvbSIsImlhdCI6MTc4MjM2MTAwOCwiZXhwIjoxNzgyNDQ3NDA4fQ.GSLYnWLIleOL8ICFMBhQm__qDzOaTvGaZXEOEC6kv-cZl-VfrDYaXHVz2r4nesKh"
+      },
+      "metaSortKey": -1782360912952,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_type": "request",
+      "_id": "req_2e4940203bee4d2fb67d8192517b6653",
+      "parentId": "wrk_f119c802013d437ca1dea18e006fb2da",
+      "modified": 1782361070037,
+      "created": 1782360953216,
+      "url": "http://localhost:8080/produtos/1",
+      "name": "Atualizar Produto",
+      "description": "",
+      "method": "PUT",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"nome\": \"Baião de Dois Especial\",\n\t\"descricao\": \"Com manteiga de garrafa e coentro\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJnZXJlbnRlQGVtYWlsLmNvbSIsImlhdCI6MTc4MjM2MTAwOCwiZXhwIjoxNzgyNDQ3NDA4fQ.GSLYnWLIleOL8ICFMBhQm__qDzOaTvGaZXEOEC6kv-cZl-VfrDYaXHVz2r4nesKh"
+      },
+      "metaSortKey": -1782360953216,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_type": "request",
+      "_id": "req_7a0410d91fbc47669cf37f7f87ddec14",
+      "parentId": "wrk_f119c802013d437ca1dea18e006fb2da",
+      "modified": 1782592978963,
+      "created": 1782440746605,
+      "url": "http://localhost:8080/cardapio",
+      "name": "Cadastrar Item no Cardápio",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"produtoId\": 1,\n\t\"unidadeId\": 1,\n\t\"preco\": 29.90,\n\t\"disponivel\": true\n}"
+      },
+      "parameters": [],
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJnZXJlbnRlQGVtYWlsLmNvbSIsImlhdCI6MTc4MjU5MjgwNSwiZXhwIjoxNzgyNjc5MjA1fQ.2ZcpjiUT7fXn0Og3MRO2ygc_5V6EC8VZXXEZgAIi0wSoXNStB1TNCYyLwf8sQCsl"
+      },
+      "metaSortKey": -1782440746605,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_type": "request",
+      "_id": "req_08ba1a5e03874e7b9e65e51cad1877d5",
+      "parentId": "wrk_f119c802013d437ca1dea18e006fb2da",
+      "modified": 1782441110879,
+      "created": 1782440785456,
+      "url": "http://localhost:8080/cardapio",
+      "name": "Listar Cardápio de Unidade",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        { "name": "unidadeId", "value": "1", "disabled": false }
+      ],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJnZXJlbnRlQGVtYWlsLmNvbSIsImlhdCI6MTc4MjQ0MDk4NiwiZXhwIjoxNzgyNTI3Mzg2fQ.U28BvYPoVl0RSZ8RpzFmLkuTwXEkFoseWj_0pRS4QoR0UUcw7qK__WFImSq5nHW8"
+      },
+      "metaSortKey": -1782440785456,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_type": "request",
+      "_id": "req_abc6cb091f8346b5a8aec82c7a4204c6",
+      "parentId": "wrk_f119c802013d437ca1dea18e006fb2da",
+      "modified": 1782441483183,
+      "created": 1782440837814,
+      "url": "http://localhost:8080/cardapio/2",
+      "name": "Atualizar Item do Cardápio",
+      "description": "",
+      "method": "PUT",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"produtoId\": 1,\n\t\"unidadeId\": 1,\n\t\"preco\": 34.90,\n\t\"disponivel\": true\n}"
+      },
+      "parameters": [],
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJnZXJlbnRlQGVtYWlsLmNvbSIsImlhdCI6MTc4MjQ0MDk4NiwiZXhwIjoxNzgyNTI3Mzg2fQ.U28BvYPoVl0RSZ8RpzFmLkuTwXEkFoseWj_0pRS4QoR0UUcw7qK__WFImSq5nHW8"
+      },
+      "metaSortKey": -1782440837814,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_type": "request",
+      "_id": "req_96e28cae3ccc4cceb47bb375901fa2d5",
+      "parentId": "wrk_f119c802013d437ca1dea18e006fb2da",
+      "modified": 1782592989637,
+      "created": 1782504396796,
+      "url": "http://localhost:8080/estoque/entrada",
+      "name": "Registrar Entrada Estoque",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"unidadeId\": 1,\n\t\"produtoId\": 1,\n\t\"quantidade\": 50\n}"
+      },
+      "parameters": [],
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJnZXJlbnRlQGVtYWlsLmNvbSIsImlhdCI6MTc4MjU5MjgwNSwiZXhwIjoxNzgyNjc5MjA1fQ.2ZcpjiUT7fXn0Og3MRO2ygc_5V6EC8VZXXEZgAIi0wSoXNStB1TNCYyLwf8sQCsl"
+      },
+      "metaSortKey": -1782504396796,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_type": "request",
+      "_id": "req_b325b4a96d964ea19946093de14a0d97",
+      "parentId": "wrk_f119c802013d437ca1dea18e006fb2da",
+      "modified": 1782588899849,
+      "created": 1782504451163,
+      "url": "http://localhost:8080/estoque/1",
+      "name": "Consultar Estoque por Unidade",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJnZXJlbnRlQGVtYWlsLmNvbSIsImlhdCI6MTc4MjU4Nzg3MSwiZXhwIjoxNzgyNjc0MjcxfQ.z8ZaD8LQwvHdG8rlJGLtfspeWv1e1cVNI9VniU5IiUMRHkR7SYGTvd0x6f71VxO_"
+      },
+      "metaSortKey": -1782504451163,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_type": "request",
+      "_id": "req_5125468532c149289586e27ffb29aab5",
+      "parentId": "wrk_f119c802013d437ca1dea18e006fb2da",
+      "modified": 1782593066649,
+      "created": 1782522991825,
+      "url": "http://localhost:8080/pedidos",
+      "name": "Criar Pedido",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"unidadeId\": 1,\n\t\"canalPedido\": \"APP\",\n\t\"itens\": [\n\t\t{\n\t\t\t\"produtoId\": 1,\n\t\t\t\"quantidade\": 2,\n\t\t\t\"observacao\": \"sem cebola\"\n\t\t}\n\t]\n}"
+      },
+      "parameters": [],
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJjbGllbnRlQGVtYWlsLmNvbSIsImlhdCI6MTc4MjU5MzA0NywiZXhwIjoxNzgyNjc5NDQ3fQ.eAoctOZX0Rkpdos01rWofaYg62kGTUMIg_rh2jFgWromf1tfcWQca1fh6pOaGRHH"
+      },
+      "metaSortKey": -1782522991825,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_type": "request",
+      "_id": "req_f9d3d8c06e1b4eec8754b1fd85cde50e",
+      "parentId": "wrk_f119c802013d437ca1dea18e006fb2da",
+      "modified": 1782533581459,
+      "created": 1782523644079,
+      "url": "http://localhost:8080/pedidos/1",
+      "name": "Consultar Pedidos da Unidade",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJnZXJlbnRlQGVtYWlsLmNvbSIsImlhdCI6MTc4MjUzMjY5NSwiZXhwIjoxNzgyNjE5MDk1fQ.mmZz3CNIU5RQDni9n7ZAH1trUsfhoyIqoV6Z0WwexXLe6GJJ5OS1HsAuOg6HYfma"
+      },
+      "metaSortKey": -1782523644079,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_type": "request",
+      "_id": "req_1697e7a74e90484a96dae8edfc987237",
+      "parentId": "wrk_f119c802013d437ca1dea18e006fb2da",
+      "modified": 1782524332779,
+      "created": 1782524268663,
+      "url": "http://localhost:8080/pedidos/1",
+      "name": "Consultar Pedidos com Filtro de Status",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        { "name": "status", "value": "RECEBIDO", "disabled": false }
+      ],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdGVuZGVudGVAZW1haWwuY29tIiwiaWF0IjoxNzgyNTIzNjgyLCJleHAiOjE3ODI2MTAwODJ9.3YQm3TKFAkAECg39f-PPwEwd9NjTZzsu7ktRyvXgLBUu1uwbCmWjPmhObxn47xm2"
+      },
+      "metaSortKey": -1782524268663,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_type": "request",
+      "_id": "req_34309e0ab52943589736df83d5fb89e9",
+      "parentId": "wrk_f119c802013d437ca1dea18e006fb2da",
+      "modified": 1782715426961,
+      "created": 1782524362783,
+      "url": "http://localhost:8080/pedidos/1/status",
+      "name": "Atualizar Status do Pedido",
+      "description": "",
+      "method": "PATCH",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"status\": \"EM_PREPARO\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhdGVuZGVudGVAZW1haWwuY29tIiwiaWF0IjoxNzgyNTkzMTExLCJleHAiOjE3ODI2Nzk1MTF9.hhNZFeKRm7C0yJucQ2OGldK0AeiqOEPCphRXmZYSmgCLaatCoHA7koZTJP1H2hFG"
+      },
+      "metaSortKey": -1782524362783,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_type": "request",
+      "_id": "req_c3df4f354ea346a09aef663ff1402d15",
+      "parentId": "wrk_f119c802013d437ca1dea18e006fb2da",
+      "modified": 1782588887659,
+      "created": 1782524569381,
+      "url": "http://localhost:8080/pedidos/1/cancelar",
+      "name": "Cancelar Pedido",
+      "description": "",
+      "method": "PATCH",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJjbGllbnRlQGVtYWlsLmNvbSIsImlhdCI6MTc4MjU4Nzg1NCwiZXhwIjoxNzgyNjc0MjU0fQ._J54-2_EBoYj7Rx0bYyD9ZqafcSaTY7ffw92HWCDdmzZx-MD7RAqeLT7V5"
+      },
+      "metaSortKey": -1782524569381,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_type": "request",
+      "_id": "req_a35637a750484c049a2c0867e73ba58f",
+      "parentId": "wrk_f119c802013d437ca1dea18e006fb2da",
+      "modified": 1782588560176,
+      "created": 1782527983565,
+      "url": "http://localhost:8080/pagamentos",
+      "name": "Processar Pagamento",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"pedidoId\": 1,\n\t\"tipoPagamento\": \"PIX\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJjbGllbnRlQGVtYWlsLmNvbSIsImlhdCI6MTc4MjU4Nzg1NCwiZXhwIjoxNzgyNjc0MjU0fQ._J54-2_EBoYj7Rx0bYyD9ZqafcSaTY7ffw92HWCDdmzZx-MD7RAqeLT7V5"
+      },
+      "metaSortKey": -1782527983565,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_type": "request",
+      "_id": "req_57842437a08446d495c4ffd65365f2af",
+      "parentId": "wrk_f119c802013d437ca1dea18e006fb2da",
+      "modified": 1782592837816,
+      "created": 1782530270777,
+      "url": "http://localhost:8080/fidelidade/consentimento",
+      "name": "Registrar Consentimento",
+      "description": "",
+      "method": "POST",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJjbGllbnRlQGVtYWlsLmNvbSIsImlhdCI6MTc4MjU4Nzg1NCwiZXhwIjoxNzgyNjc0MjU0fQ._J54-2_EBoYj7Rx0bYyD9ZqafcSaTY7ffw92HWCDdmzZx-MD7RAqeLT7V5"
+      },
+      "metaSortKey": -1782530270777,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_type": "request",
+      "_id": "req_7081b04a86654f35993719d7a337fe53",
+      "parentId": "wrk_f119c802013d437ca1dea18e006fb2da",
+      "modified": 1782588183713,
+      "created": 1782533043091,
+      "url": "http://localhost:8080/fidelidade/meus-pontos",
+      "name": "Consultar Pontos do Cliente",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJjbGllbnRlQGVtYWlsLmNvbSIsImlhdCI6MTc4MjU4Nzg1NCwiZXhwIjoxNzgyNjc0MjU0fQ._J54-2_EBoYj7Rx0bYyD9ZqafcSaTY7ffw92HWCDdmzZx-MD7RAqeLT7V5"
+      },
+      "metaSortKey": -1782533043091,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_type": "request",
+      "_id": "req_ba88bfe777834698a237fc8d14c31354",
+      "parentId": "wrk_f119c802013d437ca1dea18e006fb2da",
+      "modified": 1782588399424,
+      "created": 1782533097545,
+      "url": "http://localhost:8080/pedidos/meu-historico",
+      "name": "Consultar Histórico de Pedidos do Cliente",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJjbGllbnRlQGVtYWlsLmNvbSIsImlhdCI6MTc4MjU4Nzg1NCwiZXhwIjoxNzgyNjc0MjU0fQ._J54-2_EBoYj7Rx0bYyD9ZqafcSaTY7ffw92HWCDdmzZx-MD7RAqeLT7V5"
+      },
+      "metaSortKey": -1782533097545,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    }
+  ]
+}
